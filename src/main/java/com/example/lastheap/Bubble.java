@@ -114,11 +114,10 @@ public class LinkedListNode {
     private static void bubble(LinkedListNode rootNode) {
         // 이제 노드들을 비교해서 정렬
         int size = getSize(rootNode);
-
-
         LinkedListNode temp = new LinkedListNode();  // 빈 주소 노드
 
-        for (int i = size; i > 0; i--) {
+             //7
+        for (int i = 0; i < size; i++) {
             temp = rootNode;
 
             while (temp.right != null){
@@ -158,6 +157,7 @@ public class LinkedListNode {
 
 
     private static void addList(LinkedListNode rootNode, int i) {
+
 
         LinkedListNode temp = new LinkedListNode();  // 빈 주소 노드
 
