@@ -26,7 +26,6 @@ public class LinkedListNode {
     }
 
 
-
     public LinkedListNode getLeft() {
         return left;
     }
@@ -39,6 +38,7 @@ public class LinkedListNode {
         this.left = left;
     }
 
+
     public void setRight(int value) {
         this.right = new LinkedListNode(value);
     }
@@ -49,6 +49,7 @@ public class LinkedListNode {
                 "value=" + value +
                 '}';
     }
+
     public LinkedListNode(int value) {
         this.value = value;
         this.left = null;
@@ -60,16 +61,16 @@ public class LinkedListNode {
 
         LinkedListNode rootNode = new LinkedListNode(5);
 
-        addList(rootNode,3);
-        addList(rootNode,5);
-        addList(rootNode,6);
-        addList(rootNode,7);
-        addList(rootNode,1);
-        addList(rootNode,4);
+        addList(rootNode, 3);
+        addList(rootNode, 5);
+        addList(rootNode, 6);
+        addList(rootNode, 7);
+        addList(rootNode, 1);
+        addList(rootNode, 4);
 
 
         bubble(rootNode);
-//
+
         List<Integer> integers = easyPrint(rootNode);
 
         System.out.println(integers);
@@ -82,10 +83,6 @@ public class LinkedListNode {
         System.out.println(rootNode.right.right.right.right.right);
         System.out.println(rootNode.right.right.right.right.right.right);
 
-
-//        bubbleSort(integers);
-//
-//        System.out.println(integers);
     }
 
     private static List<Integer> easyPrint(LinkedListNode rootNode) {
@@ -94,20 +91,19 @@ public class LinkedListNode {
         LinkedListNode temp = new LinkedListNode();
 
         List<Integer> num = new ArrayList<>();
-        temp =rootNode;
+        temp = rootNode;
 
-        for (int i = 1;i <size; i++) {
-            while (temp.right != null ){
+        for (int i = 1; i < size; i++) {
+            while (temp.right != null) {
                 num.add(temp.value);
                 temp = temp.right;
-                if (temp.right == null){
+                if (temp.right == null) {
                     num.add(temp.value);
                 }
             }
 
         }
         return num;
-
 
     }
 
@@ -116,25 +112,23 @@ public class LinkedListNode {
         int size = getSize(rootNode);
         LinkedListNode temp = new LinkedListNode();  // 빈 주소 노드
 
-             //7
+        //7
         for (int i = 0; i < size; i++) {
             temp = rootNode;
 
-            while (temp.right != null){
+            while (temp.right != null) {
                 if (temp.value > temp.right.value) {
                     swap(temp);
                     temp = temp.right;
 
-                } else if(temp.value < temp.right.value) {
+                } else if (temp.value < temp.right.value) {
                     temp = temp.right;
                 } else {
                     temp = temp.right;
                 }
             }
         }
-
     }
-
     private static int getSize(LinkedListNode rootNode) {
 
         int a = 1;
@@ -142,17 +136,18 @@ public class LinkedListNode {
         LinkedListNode temp = new LinkedListNode();
         temp = rootNode;
 
-        while (temp.right != null){
-        a++;
-        temp = temp.right;
+        while (temp.right != null) {
+            a++;
+            temp = temp.right;
         }
         return a;
     }
 
     private static void swap(LinkedListNode rootNode) {
         int temp = rootNode.value;
-        rootNode.value = rootNode.right.value;
-        rootNode.right.value = temp;
+        rootNode.setValue(rootNode.right.value);
+        rootNode.right.setValue(temp);
+
     }
 
 
@@ -163,7 +158,7 @@ public class LinkedListNode {
 
         temp = rootNode;   //템프라는 노드에 루트노드 주소값이 들어
 
-        while (temp.right != null){   // 템프(루트) 노드에 right의 값이 null이 아닐 때까지
+        while (temp.right != null) {   // 템프(루트) 노드에 right의 값이 null이 아닐 때까지
             temp = temp.getRight();  // 템프(루트) 노드는 템프(루트) 노드의 right 노드의 주소값을 가짐
         }
 
