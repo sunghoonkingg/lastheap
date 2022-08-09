@@ -61,11 +61,11 @@ public class LinkedListNode {
         LinkedListNode rootNode = new LinkedListNode(5);
 
         addList(rootNode,3);
-        addList(rootNode,3);
-        addList(rootNode,3);
-        addList(rootNode,3);
-        addList(rootNode,2);
-        addList(rootNode,3);
+        addList(rootNode,5);
+        addList(rootNode,6);
+        addList(rootNode,7);
+        addList(rootNode,1);
+        addList(rootNode,4);
 
 
         bubble(rootNode);
