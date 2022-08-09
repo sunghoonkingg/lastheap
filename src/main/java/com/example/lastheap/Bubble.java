@@ -68,14 +68,11 @@ public class LinkedListNode {
         addList(rootNode,3);
 
 
-
-
-
         bubble(rootNode);
 //
-//        List<Integer> integers = easyPrint(rootNode);
+        List<Integer> integers = easyPrint(rootNode);
 
-//        System.out.println(integers);
+        System.out.println(integers);
 
         System.out.println(rootNode);
         System.out.println(rootNode.right);
@@ -91,25 +88,28 @@ public class LinkedListNode {
 //        System.out.println(integers);
     }
 
-//    private static List<Integer> easyPrint(LinkedListNode rootNode) {
-//        int size = getSize(rootNode);
-//
-//        LinkedListNode temp = new LinkedListNode();
-//
-//        List<Integer> num = new ArrayList<>();
-//
-//        num.add(rootNode.value);
-//        temp =rootNode;
-//        for (int i = size; i > 0; i--) {
-//            while (temp.right != null){
-//                num.add(temp.value);
-//                temp = temp.right;
-//            }
-//        }
-//        return num;
-//
-//
-//    }
+    private static List<Integer> easyPrint(LinkedListNode rootNode) {
+        int size = getSize(rootNode);
+
+        LinkedListNode temp = new LinkedListNode();
+
+        List<Integer> num = new ArrayList<>();
+        temp =rootNode;
+
+        for (int i = 1;i <size; i++) {
+            while (temp.right != null ){
+                num.add(temp.value);
+                temp = temp.right;
+                if (temp.right == null){
+                    num.add(temp.value);
+                }
+            }
+
+        }
+        return num;
+
+
+    }
 
     private static void bubble(LinkedListNode rootNode) {
         // 이제 노드들을 비교해서 정렬
