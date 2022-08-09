@@ -68,7 +68,6 @@ public class LinkedListNode {
         addList(rootNode, 1);
         addList(rootNode, 4);
 
-
         bubble(rootNode);
 
         List<Integer> integers = easyPrint(rootNode);
@@ -101,7 +100,6 @@ public class LinkedListNode {
                     num.add(temp.value);
                 }
             }
-
         }
         return num;
 
@@ -145,15 +143,16 @@ public class LinkedListNode {
 
     private static void swap(LinkedListNode rootNode) {
         int temp = rootNode.value;
+        
         rootNode.setValue(rootNode.right.value);
+        
         rootNode.right.setValue(temp);
 
     }
 
 
     private static void addList(LinkedListNode rootNode, int i) {
-
-
+        
         LinkedListNode temp = new LinkedListNode();  // 빈 주소 노드
 
         temp = rootNode;   //템프라는 노드에 루트노드 주소값이 들어
@@ -161,9 +160,9 @@ public class LinkedListNode {
         while (temp.right != null) {   // 템프(루트) 노드에 right의 값이 null이 아닐 때까지
             temp = temp.getRight();  // 템프(루트) 노드는 템프(루트) 노드의 right 노드의 주소값을 가짐
         }
-
+        
         temp.setRight(i);  // 템프 노드에는 새로운 값을 가진 노드를 저장함
-
+   
     }
 
 //    public static void bubbleSort(LinkedList<LinkedListNode> integers){
