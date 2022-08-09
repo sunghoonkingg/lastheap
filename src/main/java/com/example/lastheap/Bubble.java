@@ -1,6 +1,7 @@
 package com.example.bubbleSort;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LinkedListNode {
 
@@ -57,45 +58,110 @@ public class LinkedListNode {
 
     public static void main(String[] args) {
 
-//        LinkedList<Bubble> integers = new LinkedList<>();
-//
-//        integers.add(new Bubble(9));
-//        integers.add(new Bubble(2));
-//        integers.add(new Bubble(5));
-//        integers.add(new Bubble(3));
-//        integers.add(new Bubble(5));
-//        integers.add(new Bubble(8));
-//        integers.add(new Bubble(1));
-
-
-
         LinkedListNode rootNode = new LinkedListNode(5);
 
         addList(rootNode,3);
-        addList(rootNode,7);
-        addList(rootNode,6);
-        addList(rootNode,1);
+        addList(rootNode,3);
+        addList(rootNode,3);
+        addList(rootNode,3);
         addList(rootNode,2);
-        addList(rootNode,4);
+        addList(rootNode,3);
+
+
+
+
 
         bubble(rootNode);
+//
+//        List<Integer> integers = easyPrint(rootNode);
+
+//        System.out.println(integers);
+
+        System.out.println(rootNode);
+        System.out.println(rootNode.right);
+        System.out.println(rootNode.right.right);
+        System.out.println(rootNode.right.right.right);
+        System.out.println(rootNode.right.right.right.right);
+        System.out.println(rootNode.right.right.right.right.right);
+        System.out.println(rootNode.right.right.right.right.right.right);
+
 
 //        bubbleSort(integers);
 //
 //        System.out.println(integers);
     }
 
+//    private static List<Integer> easyPrint(LinkedListNode rootNode) {
+//        int size = getSize(rootNode);
+//
+//        LinkedListNode temp = new LinkedListNode();
+//
+//        List<Integer> num = new ArrayList<>();
+//
+//        num.add(rootNode.value);
+//        temp =rootNode;
+//        for (int i = size; i > 0; i--) {
+//            while (temp.right != null){
+//                num.add(temp.value);
+//                temp = temp.right;
+//            }
+//        }
+//        return num;
+//
+//
+//    }
+
     private static void bubble(LinkedListNode rootNode) {
+        // 이제 노드들을 비교해서 정렬
+        int size = getSize(rootNode);
 
 
+        LinkedListNode temp = new LinkedListNode();  // 빈 주소 노드
+
+        for (int i = size; i > 0; i--) {
+            temp = rootNode;
+
+            while (temp.right != null){
+                if (temp.value > temp.right.value) {
+                    swap(temp);
+                    temp = temp.right;
+
+                } else if(temp.value < temp.right.value) {
+                    temp = temp.right;
+                } else {
+                    temp = temp.right;
+                }
+            }
+        }
 
     }
+
+    private static int getSize(LinkedListNode rootNode) {
+
+        int a = 1;
+
+        LinkedListNode temp = new LinkedListNode();
+        temp = rootNode;
+
+        while (temp.right != null){
+        a++;
+        temp = temp.right;
+        }
+        return a;
+    }
+
+    private static void swap(LinkedListNode rootNode) {
+        int temp = rootNode.value;
+        rootNode.value = rootNode.right.value;
+        rootNode.right.value = temp;
+    }
+
 
     private static void addList(LinkedListNode rootNode, int i) {
 
         LinkedListNode temp = new LinkedListNode();  // 빈 주소 노드
 
-        temp = rootNode;   //템프라는 노드에 루트노드 주소값이 들어 있 어요
+        temp = rootNode;   //템프라는 노드에 루트노드 주소값이 들어
 
         while (temp.right != null){   // 템프(루트) 노드에 right의 값이 null이 아닐 때까지
             temp = temp.getRight();  // 템프(루트) 노드는 템프(루트) 노드의 right 노드의 주소값을 가짐
@@ -105,23 +171,23 @@ public class LinkedListNode {
 
     }
 
-    public static void bubbleSort(LinkedList<LinkedListNode> integers){
-
-        for (int j = 0; j < integers.size(); j++) {
-            for (int i = 0; i < integers.size()-1; i++) {
-                if (integers.get(i).value > integers.get(i+1).value){
-                    swap(integers,i,i+1);
-                }
-            }
-        }
-    }
-
-    public static void swap(LinkedList<LinkedListNode> integers, int a, int b){
-
-        int value1 = integers.get(a).value;
-        integers.get(a).value = integers.get(b).value;
-        integers.get(b).value = value1;
-
-    }
+//    public static void bubbleSort(LinkedList<LinkedListNode> integers){
+//
+//        for (int j = 0; j < integers.size(); j++) {
+//            for (int i = 0; i < integers.size()-1; i++) {
+//                if (integers.get(i).value > integers.get(i+1).value){
+//                    swap(integers,i,i+1);
+//                }
+//            }
+//        }
+//    }
+//
+//    public static void swap(LinkedList<LinkedListNode> integers, int a, int b){
+//
+//        int value1 = integers.get(a).value;
+//        integers.get(a).value = integers.get(b).value;
+//        integers.get(b).value = value1;
+//
+//    }
 
 }
